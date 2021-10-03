@@ -66,5 +66,4 @@ docs/_build/
 target/
 .metals
 .metals/metals.h2.db
-local.py
 config.json
