@@ -31,7 +31,7 @@ if not settings.DEBUG:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
 
-    ALLOWED_HOSTS = ['66.29.145.31']
+    ALLOWED_HOSTS = ['www.teamsapp.us','teamsapp.us']
 
 
     # Application definition
