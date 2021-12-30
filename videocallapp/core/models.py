@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     video_link = models.CharField(max_length=1000, default='', blank=True)
     redirect_link = models.URLField(default='', blank=True)
     link_visits = models.IntegerField(default=0)
-    created = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
     last_seen = models.DateTimeField(auto_now=True, auto_now_add=False)
     
     
