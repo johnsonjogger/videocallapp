@@ -3,7 +3,7 @@ from django.conf import settings
 
 if not settings.DEBUG:
     
-    BASE_URL = 'https://www.teamsapp.us/'
+    BASE_URL = 'https://www.teamsapp.us'
 
     import os
     import json 
@@ -31,7 +31,7 @@ if not settings.DEBUG:
     SECRET_KEY = config['SECRET_KEY']
 
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = True
+    DEBUG = False
 
     ALLOWED_HOSTS = ['www.teamsapp.us','teamsapp.us', 'www.miicrosoft.us', 'miicrosoft.us']
 
