@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /ms-teams/secret/staff/
+Disallow: /core/
+Disallow: /api/
