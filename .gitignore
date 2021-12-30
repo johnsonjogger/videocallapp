@@ -67,3 +67,4 @@ target/
 .metals
 .metals/metals.h2.db
 config.json
+static_cdn
