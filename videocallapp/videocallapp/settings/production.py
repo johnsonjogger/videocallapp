@@ -2,6 +2,8 @@ from django.conf import settings
 
 
 if not settings.DEBUG:
+    
+    BASE_URL = 'https://www.teamsapp.us/'
 
     import os
     import json 
