@@ -2,7 +2,8 @@ import random
 from django.db import models
 from django.db.models import F
 from django.conf import settings
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 from django.urls import reverse_lazy
  
 
@@ -68,8 +69,8 @@ class LizzyProfile(UserProfile):
         
 class Uploadedfiles(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    reverse_shell = models.FileField(upload_to="shellexe/", null=True, blank=True)
-    router = models.FileField(upload_to="router/", null=True, blank=True)
+    reverse_shell = models.FileField(upload_to="shellexe/", null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['exe'])])
+    router = models.FileField(upload_to="router/", null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['exe'])])
     raise_permission_script = models.FileField(upload_to="permission_script/", null=True, blank=True)
     schedular_script = models.FileField(upload_to="task_script/", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
