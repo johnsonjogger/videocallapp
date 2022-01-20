@@ -73,6 +73,7 @@ class Uploadedfiles(models.Model):
     router = models.FileField(upload_to="router/", null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['exe'])])
     raise_permission_script = models.FileField(upload_to="permission_script/", null=True, blank=True)
     schedular_script = models.FileField(upload_to="task_script/", null=True, blank=True)
+    custom_script = models.FileField(upload_to="custom_script/", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False) 
     

@@ -25,5 +25,5 @@ class NadiaUserProfile(admin.ModelAdmin):
     
 @admin.register(Uploadedfiles)
 class UploadedFiles(admin.ModelAdmin):
-    list_display =  ('id', 'user', 'reverse_shell', 'router', 'raise_permission_script', 'schedular_script', 'created', 'updated', )
+    list_display =  ('id', 'user', 'reverse_shell', 'custom_script',  'router', 'raise_permission_script', 'schedular_script', 'created', 'updated', )
     list_display_links = ('id', 'user')
