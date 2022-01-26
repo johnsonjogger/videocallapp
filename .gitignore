@@ -64,6 +64,4 @@ docs/_build/
 
 # PyBuilder
 target/
-.metals
-.metals/metals.h2.db
-config.json
+.

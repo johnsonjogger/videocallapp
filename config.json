@@ -1,0 +1,15 @@
+{
+	"SECRET_KEY": "4kmybf!ef)8u*x3xl4l#e1(-xeqf(+04z56%-c2t557kle)vvl", 
+	"EMAIL_USER": "teampairing@gmail.com",
+	"EMAIL_PASS": "rbxzgovichxxyafw",
+	"EMAIL_HOST": "smtp.gmail.com",
+	"USER": "blackrose",
+	"PROPORT": "587",
+	"PASSWORD": "showpassworD2@",
+	"DATABASEPORT": "5432",
+	"HOST":"localhost",
+	"DEVUSER": "postgres",
+	"DEVPORT": "9999", 
+	"DATABASENAME": "teamsapp_db"
+
+}
