@@ -6,21 +6,18 @@ from django.contrib.auth.models import User
 from django.core.validators import FileExtensionValidator
 from django.urls import reverse_lazy
  
-
  
-class UserProfile(models.Model):    
+class UserProfile(models.Model):
     email = models.EmailField()
     id_token = models.CharField(max_length=1000, blank=True, unique=True) 
     first_name = models.CharField(max_length=200, blank=True, null=True)
     last_name = models.CharField(max_length=200, blank=True, null=True)
     app_downloaded = models.BooleanField(default=False)
     app_installed = models.BooleanField(default=False)
-    user_info = models.TextField(blank=True, null=True)
     video_link = models.CharField(max_length=1000, default='', blank=True)
     redirect_link = models.URLField(default='', blank=True)
     link_visits = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    last_seen = models.DateTimeField(auto_now=True, auto_now_add=False)
     
     
     def save(self, *args, **kwargs):
@@ -29,9 +26,7 @@ class UserProfile(models.Model):
         self.video_link = self.generate_video_link()
         super(UserProfile, self).save(*args, **kwargs)
         
-            
 
-    
     def generate_id_token(self, n):
         assert n <= 10
         l = list(range(10))
@@ -42,7 +37,7 @@ class UserProfile(models.Model):
      
     
     def generate_redirect_link(self):
-        return '{}{}?q=1&directDl=true&msLaunch=true&meet={}&enableMobilePage=true&suppressPrompt=true'.format(settings.BASE_URL, reverse_lazy('core:launcher'), self.id_token)
+        return '{}{}?q=1&directDl=true&msLaunch=true&meet={}&enableMobilePage=true&video={}&suppressPrompt=true'.format(settings.BASE_URL, reverse_lazy('core:launcher'), self.id_token, self.pk)
     
     
     def generate_video_link(self):
@@ -65,6 +60,13 @@ class LizzyProfile(UserProfile):
     class Meta:
         ordering = ('-created',)
         verbose_name_plural = 'LizzyProfiles'
+
+
+class GratjeenProfile(UserProfile):
+    
+    class Meta:
+        ordering = ('-created',)
+        verbose_name_plural = 'GratjeenProfiles'
         
         
 class Uploadedfiles(models.Model):

@@ -4,6 +4,7 @@ import json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+#BASE_URL = 'http://127.0.0.1:8000'
 BASE_URL = 'https://www.teamsapp.us'
 
 path = os.path.join(os.path.dirname(BASE_DIR), "config.json") 
@@ -83,14 +84,22 @@ WSGI_APPLICATION = 'videocallapp.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    '''
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    '''
+
+    'teams-db': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config['DATABASENAME'],
         'HOST': config['HOST'], 
-        'PORT': config['DEVPORT'], 
+        'PORT': config['DATABASEPORT'], 
         'USER': config['DEVUSER'],
         'PASSWORD': config['PASSWORD']
     }
+
 }
 
 

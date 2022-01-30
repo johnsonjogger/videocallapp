@@ -7,7 +7,10 @@ pip-selfcheck.json
 .vscode/
 .metals/
 /venv/
-
+Lib 
+pyvenv.cfg
+include
+Scripts
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -65,3 +68,6 @@ docs/_build/
 # PyBuilder
 target/
 .
+
+config.json
+pyvenv.cfg

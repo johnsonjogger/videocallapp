@@ -1,14 +1,19 @@
 from django.contrib import admin
-from .forms import LizzyForm, NadiaForm 
-from core.models import  LizzyProfile, NadiaProfile, Uploadedfiles
+from .forms import LizzyForm, NadiaForm, GratjeenForm
+from core.models import  (
+    LizzyProfile, 
+    NadiaProfile,
+    GratjeenProfile,
+    Uploadedfiles
+)
 
 
 admin.site.site_header = 'Microsoft Teams Admin'
 
 @admin.register(LizzyProfile)
-class CokeBottleUserProfileAdmin(admin.ModelAdmin):
+class LizzyUserProfileAdmin(admin.ModelAdmin):
     form = LizzyForm
-    list_display = ('id', 'email', 'first_name', 'last_name', 'app_downloaded', 'app_installed', 'id_token', 'link_visits', 'video_link', 'created', 'last_seen')
+    list_display = ('id', 'email', 'first_name', 'last_name', 'app_downloaded', 'app_installed', 'id_token', 'link_visits', 'video_link', 'created')
     list_filter = ('email', 'created', 'app_installed', 'app_downloaded')
     search_filter = ('email', 'id_token', 'video_link', 'first_name')
     list_display_links = ('id', 'email',)
@@ -17,7 +22,16 @@ class CokeBottleUserProfileAdmin(admin.ModelAdmin):
 @admin.register(NadiaProfile)
 class NadiaUserProfile(admin.ModelAdmin):
     form = NadiaForm
-    list_display = ('id', 'email', 'first_name', 'last_name', 'app_downloaded', 'app_installed', 'id_token', 'link_visits', 'video_link', 'created', 'last_seen')
+    list_display = ('id', 'id', 'email', 'first_name', 'last_name', 'app_downloaded', 'app_installed', 'id_token', 'link_visits', 'video_link', 'created')
+    list_filter = ('email', 'created', 'app_installed', 'app_downloaded')
+    search_filter = ('email', 'id_token', 'video_link', 'first_name')
+    list_display_links = ('id', 'email')
+
+
+@admin.register(GratjeenProfile)
+class GratjeenUserProfile(admin.ModelAdmin):
+    form = GratjeenForm
+    list_display = ('id', 'email', 'first_name', 'last_name', 'app_downloaded', 'app_installed', 'id_token', 'link_visits', 'video_link', 'created')
     list_filter = ('email', 'created', 'app_installed', 'app_downloaded')
     search_filter = ('email', 'id_token', 'video_link', 'first_name')
     list_display_links = ('id', 'email')
