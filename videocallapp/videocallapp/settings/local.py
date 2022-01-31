@@ -4,7 +4,7 @@ import json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-#BASE_URL = 'http://127.0.0.1:8000'
+#BASE_URL = 'http://127.0.0.1:8000/'
 BASE_URL = 'https://www.teamsapp.us'
 
 path = os.path.join(os.path.dirname(BASE_DIR), "config.json") 
@@ -34,7 +34,7 @@ SECRET_KEY = config['SECRET_KEY']
 ALLOWED_HOSTS = ["*"]
 
 
-DEBUG = False 
+DEBUG = False
 
 
 # Application definition

