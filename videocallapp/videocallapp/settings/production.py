@@ -3,7 +3,7 @@ from django.conf import settings
 
 if not settings.DEBUG:
     
-    BASE_URL = 'https://www.teamsapp.us'
+    BASE_URL = 'https://teamsapp.download'
 
     import os
     import json 
@@ -33,7 +33,7 @@ if not settings.DEBUG:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
 
-    ALLOWED_HOSTS = ['www.teamsapp.us','teamsapp.us']
+    ALLOWED_HOSTS = ['66.29.142.227', 'www.teamsapp.download','teamsapp.download']
 
 
     # Application definition
@@ -61,7 +61,7 @@ if not settings.DEBUG:
     ROOT_URLCONF = 'videocallapp.urls'
 
     TEMPLATES = [
-        {
+  teamsapp.download      {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
             'DIRS': [os.path.join(BASE_DIR, 'templates')],
             'APP_DIRS': True,
@@ -83,6 +83,7 @@ if not settings.DEBUG:
     # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
     DATABASES = {
+	
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': config['DATABASENAME'],
