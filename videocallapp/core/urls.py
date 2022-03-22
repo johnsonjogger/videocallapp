@@ -4,7 +4,7 @@ from django.urls import path
 from django.urls import re_path
 from django.views.generic.base import RedirectView
 
-app_name = 'core'
+app_name = 'core'   
 
 
 urlpatterns = [

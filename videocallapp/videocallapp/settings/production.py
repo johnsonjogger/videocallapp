@@ -3,7 +3,8 @@ from django.conf import settings
 
 if not settings.DEBUG:
     
-    BASE_URL = 'https://teamsapp.download'
+    #BASE_URL = 'https://teamsapp.download'
+    BASE_URL = 'http://127.0.0.1:8000'
 
     import os
     import json 

